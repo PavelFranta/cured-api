@@ -8,3 +8,4 @@ export const dbPort = process.env.DB_PORT;
 export const dbPassword = process.env.DB_PASSWORD;
 export const dbURI = process.env.DATABASE_URL;
 export const testEnvironmentVariable = process.env.TEST_ENV_VARIABLE;
+export const isDevelopment = process.env.NODE_ENV === 'development' ? true : false;
