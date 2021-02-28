@@ -9,3 +9,23 @@ export const dbPassword = process.env.DB_PASSWORD;
 export const dbURI = process.env.DATABASE_URL;
 export const testEnvironmentVariable = process.env.TEST_ENV_VARIABLE;
 export const isDevelopment = process.env.NODE_ENV === 'development' ? true : false;
+
+const localdb =  {
+  host: 'localhost',
+  post: '5432',
+  database: 'cured',
+  password: 'cured',
+  user: 'postgres',
+  ssl: {
+    rejectUnauthorized: false
+  }
+};
+
+const productiondb = {
+  connectionString: dbURI,
+  ssl: {
+    rejectUnauthorized: false
+  }
+};
+
+export const BASE_URL = isDevelopment ? localdb : productiondb;
