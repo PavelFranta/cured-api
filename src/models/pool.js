@@ -1,6 +1,11 @@
 import { Pool } from 'pg';
 import dotenv from 'dotenv';
-import { DATABASE_URL } from '../settings';
+import { dbURI } from '../settings';
 dotenv.config();
 
-export const pool = new Pool({ DATABASE_URL });
+export const pool = new Pool({
+  connectionString: dbURI,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
