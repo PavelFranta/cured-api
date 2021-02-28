@@ -2,7 +2,7 @@ import debug from 'debug';
 import http from 'http';
 import app from '../app';
 
-const normalizePort = val => {
+const normalizePort = (val) => {
   const port = parseInt(val, 10);
   if (Number.isNaN(port)) {
     return val;
@@ -18,17 +18,19 @@ app.set('port', port);
 
 const server = http.createServer(app);
 
-const onError = error => {
+const onError = (error) => {
   if (error.syscall !== 'listen') {
     throw error;
   }
   const bind = typeof port === 'string' ? `Pipe ${port}` : `Port ${port}`;
   switch (error.code) {
     case 'EACCES':
+      // eslint-disable-next-line no-alert
       alert(`${bind} requires elevated privileges`);
       process.exit(1);
       break;
     case 'EADDRINUSE':
+      // eslint-disable-next-line no-alert
       alert(`${bind} is already in use`);
       process.exit(1);
       break;
