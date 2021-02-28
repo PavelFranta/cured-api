@@ -2,6 +2,6 @@ import express from 'express';
 import { loginPage } from '../controllers/';
 const loginRouter = express.Router();
 
-loginRouter.get('/', loginPage);
+loginRouter.post('/', loginPage);
 
 export default loginRouter;
