@@ -9,7 +9,8 @@
     "lint": "./node_modules/.bin/eslint ./src",
     "pretty": "prettier --write '**/*.{js,json}' '!node_modules/**'",
     "postpretty": "yarn lint --fix",
-    "test": "nyc --reporter=html --reporter=text --reporter=lcov mocha -r @babel/register"
+    "test": "nyc --reporter=html --reporter=text --reporter=lcov mocha -r @babel/register",
+    "runQuery": "babel-node ./src/utils/runQuery"
   },
   "dependencies": {
     "@babel/cli": "^7.13.0",
@@ -19,6 +20,7 @@
     "@babel/preset-env": "^7.13.8",
     "@babel/register": "^7.13.8",
     "@babel/runtime": "^7.13.8",
+    "axios": "^0.21.1",
     "chai": "^4.3.0",
     "cookie-parser": "~1.4.4",
     "coveralls": "^3.1.0",
@@ -32,6 +34,7 @@
     "morgan": "~1.9.1",
     "nodemon": "^2.0.7",
     "nyc": "^15.1.0",
+    "pg": "^8.5.1",
     "prettier": "^2.2.1",
     "sinon-chai": "^3.5.0",
     "supertest": "^6.1.3"
