@@ -6,8 +6,8 @@ export const loginPage = async (req, res) => {
   const { email, password } = req.body;
   try {
     const data = await loginModel.select('id, email, password, role', `WHERE email='${email}' AND password='${password}'`);
-    res.status(200).json({ messages: data.rows });
+    res.status(200).json({ user: data.rows });
   } catch (err) {
-    res.status(200).json({ messages: err.stack });
+    res.status(200).json({ user: err.stack });
   }
 };
