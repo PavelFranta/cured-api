@@ -13,9 +13,9 @@ export const isDevelopment = process.env.NODE_ENV === 'development' ? true : fal
 const localdb =  {
   host: 'localhost',
   post: '5432',
-  database: 'cured',
-  password: 'cured',
-  user: 'postgres',
+  database: 'cured-api',
+  user: 'pavlicek',
+  password: 'pavlicek',
   ssl: {
     rejectUnauthorized: false
   }

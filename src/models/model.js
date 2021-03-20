@@ -11,6 +11,7 @@ class Model {
   async select(columns, clause) {
     let query = `SELECT ${columns} FROM ${this.table} `;
     if (clause) query += clause;
+    console.log(query);
     return this.pool.query(query);
   }
 
@@ -19,6 +20,16 @@ class Model {
           INSERT INTO ${this.table}(${columns})
           VALUES (${values})
           RETURNING id, ${columns}
+      `;
+    return this.pool.query(query);
+  }
+
+  async updateWithReturn(column, value, id) {
+    const query = `
+          UPDATE ${this.table}
+          SET ${column} = ${value}
+          WHERE id = ${id}
+          RETURNING id, ${column}
       `;
     return this.pool.query(query);
   }
